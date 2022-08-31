@@ -10,55 +10,42 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
-    );
+    return const MaterialApp(
+        // 'Initial screen will return to us the first screen we will see,
+        //  since we are starting the widget stree, i need a scaffold
+        home: InitialScreen());
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, required this.title}) : super(key: key);
-
-  final String title;
+class InitialScreen extends StatefulWidget {
+  const InitialScreen({Key? key}) : super(key: key);
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<InitialScreen> createState() => _InitialScreenState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-print('object');
-      _counter++;
-    });
-  }
-
+class _InitialScreenState extends State<InitialScreen> {
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
-
       body: Center(
-
-        child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
-        ),
+        child: Text(
+            'we can see our widget tree expanding, where our MyApp that returns a Material App, has a home that we give an InitialScreen() that returns a scaffold, and in this scaffold, we will place a  widget, Center, that will center anything we put in it, we can also subtitute Center() with Column() and which will allow us to place multiple widgets inside, but like, something interesting happens, look at the commented link i gave you to see what happens'),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
+
+//TODO 1 [ ] - Place padding around thie text IOT (in order to) create a gap between the text and the edges of the phone
+
+/*
+
+ Interesting Link
+ https://medium.com/flutter-community/flutter-layout-cheat-sheet-5363348d037e
+ it is quiet old, however, it is a 10 / 10 read that will make you understand how basic components work here
+
+31 aug 2022
+
+ - JC 
+
+*/
